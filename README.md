@@ -56,10 +56,10 @@ Database: MongoDB (Atlas)
 
 1. items: [CartSchema]
 2. orderDate: Date
-3. customer name: String
-4. customer address: String
-5. customer email: String
-6. customer number: String
+3. customerName: String
+4. customerAddress: String
+5. customerEmail: String
+6. customerNumber: String
 7. totalAmount: Number
 8. paymentMethod: String
 

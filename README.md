@@ -80,4 +80,5 @@ Database: MongoDB (Atlas)
 **Notes**
 
 1. The project is set up using Git and GiHub for version control.
-2. I have created two folder one for the frontend part named "sb_jewelry" and next for the backend part named "sb_jewelery_backend"
+2. I will create two folder one for the frontend part named "sb_jewelry" and next for the backend part named "sb_jewelery_backend".
+3. Further development will include implementing user interfaces and server side as well.

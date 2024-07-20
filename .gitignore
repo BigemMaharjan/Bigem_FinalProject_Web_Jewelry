@@ -1,0 +1,34 @@
+# Frontend: sb_jewelry
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+sb_jewelry/node_modules/
+sb_jewelry/.pnp
+sb_jewelry.pnp.js
+
+# testing
+sb_jewelry/coverage
+
+# production
+sb_jewelry/build
+
+# misc
+sb_jewelry/.DS_Store
+sb_jewelry.env.local
+sb_jewelry.env.development.local
+sb_jewelry.env.test.local
+sb_jewelry.env.production.local
+
+sb_jewelry/npm-debug.log*
+sb_jewelry/yarn-debug.log*
+sb_jewelry/yarn-error.log*
+
+
+
+
+# Backend: sb_jewelry_backend
+
+sb_jewelry_backend/node_modules/
+sb_jewelry_backend/.pnp
+sb_jewelry_backend.pnp.js

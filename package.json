@@ -1,0 +1,20 @@
+{
+  "name": "bigem_maharjan_finalproject",
+  "version": "1.0.0",
+  "description": "E-Commerce Project (SB Jewelry)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigemMaharjan/Bigem_FinalProject_Web_Jewelry.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BigemMaharjan/Bigem_FinalProject_Web_Jewelry/issues"
+  },
+  "homepage": "https://github.com/BigemMaharjan/Bigem_FinalProject_Web_Jewelry#readme"
+}

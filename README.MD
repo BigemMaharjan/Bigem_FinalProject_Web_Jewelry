@@ -78,3 +78,19 @@ Notes
 
 1. The project is set up using Git and GiHub for version control.
 2. I have created two folder one for the frontend part named "sb_jewelry" and next for the backend part named "sb_jewelery_backend"
+
+<!-- How to start my project -->
+<!--
+## Instructions to set up the project
+
+1. Clone the repository.
+
+2. Navigate to the project directory.
+
+3. You will see two folders. Run `npm install` in each folder to install dependencies - This installs all the dependencies in the package.json or the dependencies I have installed in the project.
+
+4. Change the MongoDB Atlas connection string with your own.
+
+5. I have setup the nodemon so you can Run `nodemon index.js` or `node index.js` to start the backend server named "backend_sb_jewellers".
+
+6. You can Run `npm start` to start the frontend server named "frontend_sb_jewellers". -->

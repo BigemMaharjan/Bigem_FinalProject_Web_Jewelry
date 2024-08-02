@@ -2,9 +2,9 @@ const express = require("express");
 const pRouter = express.Router();
 const Product = require("../models/productModel");
 
-//Creating API Events
+//Creating Products API
 
-// Implementating get value to retrieve all the products
+// Implementating post method to the products
 pRouter.post("/products", async (req, res) => {
   const newProduct = new Product(req.body);
   try {
@@ -15,7 +15,7 @@ pRouter.post("/products", async (req, res) => {
   }
 });
 
-// Implementating get value to retrieve all the products
+// Implementating get method to retrieve all the products
 pRouter.get("/products", async (req, res) => {
   try {
     const retrieveProducts = await Product.find();
@@ -64,7 +64,7 @@ pRouter.delete("/products/:id", async (req, res) => {
     if (!deletedProduct) {
       return res.status(404).json({ message: "No Product can be found" });
     }
-    res.json({ message: "Event deleted successfully." }); //Displaying the successful message
+    res.json({ message: "Product deleted successfully." }); //Displaying the successful message
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

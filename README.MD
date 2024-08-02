@@ -82,7 +82,6 @@ Notes
 <!-- How to start my project -->
 <!--
 ## Instructions to set up the project
-
 1. Clone the repository.
 
 2. Navigate to the project directory.
@@ -93,4 +92,13 @@ Notes
 
 5. I have setup the nodemon so you can Run `nodemon index.js` or `node index.js` to start the backend server named "backend_sb_jewellers".
 
-6. You can Run `npm start` to start the frontend server named "frontend_sb_jewellers". -->
+6. You can Run `npm start` to start the frontend server named "frontend_sb_jewellers".
+-->
+
+<!-- Testing the backend for now -->
+<!--
+1. Open Postman and paste the collection that I have attached with the submission file
+2. All the api end-points are created. You can first configure the MonogDb Atlas and then try testing those api made for adding, retreiving, updating and deleting products.
+3. The changes can be seen in the frontend part as well.
+
+ -->

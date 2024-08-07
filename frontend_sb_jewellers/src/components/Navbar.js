@@ -30,6 +30,9 @@ function Navbar() {
             <li>
               <a href="/contact">Contact Us</a>
             </li>
+            <li>
+              <a href="/login">Login</a>
+            </li>
           </ul>
           <div className="icon" onClick={toggleMenu}>
             <FaBars />

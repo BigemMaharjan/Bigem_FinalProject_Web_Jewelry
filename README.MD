@@ -20,34 +20,27 @@ Project Setup
 
 Database Schema Design
 
-Users Schema (MongoDB)
+Users Schema (MongoDB) (Registration and Login) (For Admin and User)
 
-1. username: String
+1. name: String
 2. email: String
-3. fullName: String
-4. address: String
-5. phoneNumber: String
-6. password: String
+3. password: String
+4. isAdmin: Boolean
 
 Category Schema (MongoDB)
 
 1. categoryName: String
-2. categoryImgUrl: String
+2. categoryDesc: STring
+3. imageUrl: String
 
 Products Schema (MongoDB)
 
-1. productName: String
-2. description: String
-3. price: Number
-4. stock: Number
-5. imageUrl: String
-
-Cart Schema (MongoDB)
-
-1. productName: String
+1. name: String
 2. price: Number
-3. quantity: Number
-4. imageUrl: String
+3. description: Number
+4. quanity: Number
+5. imageUrl: String
+6. category: objectId
 
 Order Schema (MongoDB)
 
@@ -59,11 +52,6 @@ Order Schema (MongoDB)
 6. customer number: String
 7. totalAmount: Number
 8. paymentMethod: String
-
-Admin Schema (MongoDB)
-
-1. username: String
-2. password: String
 
 Frontend Setup
 

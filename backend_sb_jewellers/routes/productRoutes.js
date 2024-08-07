@@ -1,11 +1,12 @@
 const express = require("express");
 const pRouter = express.Router();
 const Product = require("../models/productModel");
+const { auth, admin } = require("../middleware/regLog_middleware");
 
 //Creating Products API
 
 // Implementating post method to the products
-pRouter.post("/products", async (req, res) => {
+pRouter.post("/products", auth, admin, async (req, res) => {
   const newProduct = new Product(req.body);
   try {
     const productSaved = await newProduct.save();
@@ -17,8 +18,14 @@ pRouter.post("/products", async (req, res) => {
 
 // Implementating get method to retrieve all the products
 pRouter.get("/products", async (req, res) => {
+  const category = req.query.category;
   try {
-    const retrieveProducts = await Product.find();
+    let retrieveProducts;
+    if (category) {
+      retrieveProducts = await Product.find({ category });
+    } else {
+      retrieveProducts = await Product.find({});
+    }
     res.json(retrieveProducts);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -39,7 +46,7 @@ pRouter.get("/products/:id", async (req, res) => {
 });
 
 //Implementing update by it's ID to update a single Product
-pRouter.put("/products/:id", async (req, res) => {
+pRouter.put("/products/:id", auth, admin, async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
@@ -58,7 +65,7 @@ pRouter.put("/products/:id", async (req, res) => {
 });
 
 // Implementating delete using id to remove a single Product
-pRouter.delete("/products/:id", async (req, res) => {
+pRouter.delete("/products/:id", auth, admin, async (req, res) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.id);
     if (!deletedProduct) {

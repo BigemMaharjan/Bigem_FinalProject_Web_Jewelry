@@ -20,9 +20,8 @@ function Home() {
         {category.map((category) => (
           <div className="content" key={category._id}>
             <a href="/productList">
-              <img src={category.imageUrl} alt="" />
+              <img src={category.imageUrl} alt={category.categoryName} />
               <h3>{category.categoryName}</h3>
-              <p>{category.categoryDesc}</p>
             </a>
           </div>
         ))}

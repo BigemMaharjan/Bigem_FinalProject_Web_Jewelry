@@ -10,6 +10,7 @@ const path = require("path");
 //Connecting routes
 const productRouter = require("./routes/productRoutes");
 const categoryRouter = require("./routes/categoryRoutes");
+const userRouter = require("./routes/userRoutes");
 
 const app = express();
 
@@ -20,20 +21,10 @@ app.use(express.json());
 const connectDB = require("./config/db");
 connectDB();
 
-// // Serve static files from the React app
-
-// app.use(express.static(path.join(__dirname, "../frontend_sb_jewellers/build")));
-
-// // Catch-all handler to send back React's index.html for any request not handled by the server
-// app.get("*", (req, res) => {
-//   res.sendFile(
-//     path.join(__dirname, "../frontend_sb_jewellers/build", "index.html")
-//   );
-// });
-
 // using the router with the "/api" prefix
 app.use("/api", productRouter);
 app.use("/api", categoryRouter);
+app.use("/api", userRouter);
 
 //setting port for running the server
 const PORT = process.env.PORT || 5000;

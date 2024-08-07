@@ -16,13 +16,20 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
 
+  quantity: {
+    type: Number,
+    required: true,
+  },
+
   imageUrl: {
     type: String,
     required: true,
   },
 
+  // category field (camelCase) referring to Category model
   category: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
     required: true,
   },
 });

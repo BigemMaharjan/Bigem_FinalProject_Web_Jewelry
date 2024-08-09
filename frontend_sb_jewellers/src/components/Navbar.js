@@ -14,6 +14,7 @@ function Navbar() {
           <div class="logo">
             <h2>SB Jewellers</h2>
           </div>
+          {/* Using ternary operator */}
           <ul className={isOpen ? "nav-link active" : "nav-link"}>
             <li>
               <a href="/">Home</a>
@@ -34,6 +35,7 @@ function Navbar() {
               <a href="/login">Login</a>
             </li>
           </ul>
+          {/* Using the faBars from the react icon */}
           <div className="icon" onClick={toggleMenu}>
             <FaBars />
           </div>

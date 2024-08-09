@@ -10,6 +10,7 @@ const Cart = () => {
   };
 
   const adjustQuantity = (id, quantity) => {
+    if (quantity < 1) return; // Prevent quantity from going below 1
     dispatch({ type: "ADJUST_QUANTITY", payload: { id, quantity } });
   };
 
@@ -25,10 +26,10 @@ const Cart = () => {
           {state.cart.map((item) => (
             <li key={item.id} className="cart-item">
               <img src={item.imageUrl} alt={item.name} />
-              <div>
+              <div className="cart-item-details">
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
-                <div>
+                <div className="quantity-controls">
                   <button
                     onClick={() => adjustQuantity(item.id, item.quantity - 1)}
                   >
@@ -41,7 +42,19 @@ const Cart = () => {
                     +
                   </button>
                 </div>
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              </div>
+              <div className="cart-item-actions">
+                <button
+                  className="remove-btn"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  Remove
+                </button>
+                <button className="order-now-btn">
+                  <Link to="/checkout" className="order-now-link">
+                    Order Now
+                  </Link>
+                </button>
               </div>
             </li>
           ))}

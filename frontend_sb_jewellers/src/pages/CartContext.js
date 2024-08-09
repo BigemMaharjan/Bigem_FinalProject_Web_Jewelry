@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext } from "react";
+import React, { createContext, useReducer, useContext, useEffect } from "react";
 
 const CartContext = createContext();
 
@@ -37,6 +37,11 @@ const cartReducer = (state, action) => {
             : item
         ),
       };
+    case "LOAD_CART":
+      return {
+        ...state,
+        cart: action.payload,
+      };
     default:
       return state;
   }
@@ -44,6 +49,17 @@ const cartReducer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, { cart: [] });
+
+  useEffect(() => {
+    const storedCart = sessionStorage.getItem("cart");
+    if (storedCart) {
+      dispatch({ type: "LOAD_CART", payload: JSON.parse(storedCart) });
+    }
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>

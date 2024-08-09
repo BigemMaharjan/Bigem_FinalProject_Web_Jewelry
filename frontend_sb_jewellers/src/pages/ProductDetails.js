@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Fetching product details for ID:", id);
+    // console.log("Fetching product details for ID:", id);
     fetch(`/api/products/${id}`)
       .then((response) => {
         if (!response.ok) {
@@ -36,6 +36,7 @@ const ProductDetails = () => {
     }
   };
 
+  //Loader
   if (!productD) {
     return <div>Loading...</div>;
   }

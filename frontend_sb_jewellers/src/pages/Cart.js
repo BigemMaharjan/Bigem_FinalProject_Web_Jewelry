@@ -1,17 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 
 const Cart = () => {
   const { state, dispatch } = useCart();
+  const navigate = useNavigate();
 
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: { id } });
   };
 
   const adjustQuantity = (id, quantity) => {
-    if (quantity < 1) return; // Prevent quantity from going below 1
+    if (quantity < 1) return;
     dispatch({ type: "ADJUST_QUANTITY", payload: { id, quantity } });
+  };
+
+  const handleOrderNow = (item) => {
+    navigate("/checkout", {
+      state: { item }, // Pass the item data to the checkout page
+    });
   };
 
   return (
@@ -42,6 +49,7 @@ const Cart = () => {
                     +
                   </button>
                 </div>
+                <p>Total: ${item.price * item.quantity}</p>
               </div>
               <div className="cart-item-actions">
                 <button
@@ -50,10 +58,11 @@ const Cart = () => {
                 >
                   Remove
                 </button>
-                <button className="order-now-btn">
-                  <Link to="/checkout" className="order-now-link">
-                    Order Now
-                  </Link>
+                <button
+                  className="order-now-btn"
+                  onClick={() => handleOrderNow(item)}
+                >
+                  Order Now
                 </button>
               </div>
             </li>

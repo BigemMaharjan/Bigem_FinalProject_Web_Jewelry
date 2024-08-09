@@ -30,8 +30,8 @@ userSchema.pre("save", async function (next) {
 });
 
 // Method to compare passwords
-userSchema.methods.comparePassword = function (candidatePassword) {
-  return bcrypt.compare(candidatePassword, this.password);
+userSchema.methods.comparePassword = function (adminPassword) {
+  return bcrypt.compare(adminPassword, this.password);
 };
 
 // Creating a model that is based on the Schema

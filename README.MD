@@ -42,17 +42,6 @@ Products Schema (MongoDB)
 5. imageUrl: String
 6. category: objectId
 
-Order Schema (MongoDB)
-
-1. items: [CartSchema]
-2. orderDate: Date
-3. customer name: String
-4. customer address: String
-5. customer email: String
-6. customer number: String
-7. totalAmount: Number
-8. paymentMethod: String
-
 Frontend Setup
 
 1. Use of React Js.

@@ -61,7 +61,7 @@ function Navbar() {
                 </li>
 
                 <li>
-                  <a href="/">Welcome</a>
+                  <a href="/adminCategory">Welcome</a>
                 </li>
               </>
             ) : (

@@ -40,8 +40,7 @@ function AdminCategory() {
 
   // Update Function
   const handleUpdateCategory = (id) => {
-    alert(`Update button clicked for category with id ${id}`);
-    // Logic for updating a category goes here
+    navigate(`/updateCategory/${id}`);
   };
 
   // Delete Function

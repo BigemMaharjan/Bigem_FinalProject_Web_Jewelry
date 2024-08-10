@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-function AddProducts() {
-  // GET Method
+function UpdateProducts() {
+  // Getting the category
   const [categories, setCategories] = useState([]);
+
+  // Initialize navigate
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch("/api/category")
       .then((response) => {
@@ -20,10 +25,35 @@ function AddProducts() {
       });
   });
 
+  const { id } = useParams(); // Making sure this matches the route parameter
+
+  useEffect(() => {
+    // console.log("Fetching product details for ID:", id);
+    fetch(`/api/products/${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched product data:", data);
+        setName(data.name);
+        setPrice(data.price);
+        setDescription(data.description);
+        setQuantity(data.quantity);
+        setImageUrl(data.imageUrl);
+        setCategoryID(data.category);
+      })
+      .catch((error) => {
+        console.error("Error fetching product details:", error);
+      });
+  }, [id]);
+
   // Retrieve the token from localStorage
   const token = localStorage.getItem("token");
 
-  // POST Method
+  // PUT Method
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -75,9 +105,8 @@ function AddProducts() {
     if (!validateForm()) {
       return;
     }
-
     // Create an object
-    const addNewProductData = {
+    const updateProductData = {
       name: name,
       price: price,
       description: description,
@@ -85,36 +114,31 @@ function AddProducts() {
       imageUrl: imageUrl,
       category: category,
     };
+
     try {
-      // Send a POST request to the backend
-      const response = await fetch("http://localhost:5000/api/products", {
-        method: "POST",
+      // Send a PUT request to the backend
+      const response = await fetch(`/api/products/${id}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`, // Include the token here
         },
-        body: JSON.stringify(addNewProductData),
+        body: JSON.stringify(updateProductData),
       });
 
       if (response.ok) {
         // Handle successful response
         const data = await response.json();
-        console.log("Product Added Successfully:", data);
+        console.log("Product Updated Successfully:", data);
 
         // Show an alert message
-        alert("Product Add successful!");
-        // Clear the form fields
-        setName("");
-        setPrice("");
-        setDescription("");
-        setQuantity("");
-        setImageUrl("");
-        setCategoryID("");
-        setErrors({});
+        alert("Product Update successful!");
+
+        navigate("/adminProduct");
       } else {
         // Handle error response
-        console.error("Product Add failed:", response.statusText);
-        alert("Product Add failed. Please try again.");
+        console.error("Product Update failed:", response.statusText);
+        alert("Product Update failed. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -126,7 +150,7 @@ function AddProducts() {
     <main>
       <section className="contactForm">
         <form onSubmit={handleSubmit}>
-          <h1>Add New Product</h1>
+          <h1>Update Product</h1>
 
           {/* Name */}
           <div className="input-control">
@@ -162,9 +186,7 @@ function AddProducts() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            {errors.description && (
-              <p className="error">{errors.description}</p>
-            )}
+            {errors.price && <p className="error">{errors.price}</p>}
           </div>
 
           <div className="input-control">
@@ -212,7 +234,7 @@ function AddProducts() {
 
           {/* Submit Button */}
           <button className="btn" type="submit">
-            Add
+            Update
           </button>
         </form>
       </section>
@@ -220,4 +242,4 @@ function AddProducts() {
   );
 }
 
-export default AddProducts;
+export default UpdateProducts;

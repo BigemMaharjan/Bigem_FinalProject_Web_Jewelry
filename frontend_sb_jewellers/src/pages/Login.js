@@ -69,7 +69,7 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(data.user));
 
         // Redirect to the home page
-        navigate("/dashboard");
+        navigate("/adminCategory");
       } else {
         // Handle error response
         console.error("Login failed:", response.statusText);

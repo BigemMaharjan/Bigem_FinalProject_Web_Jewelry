@@ -74,6 +74,11 @@ function Register() {
 
         // Show an alert message
         alert("Registration successful!");
+
+        setName("");
+        setEmail("");
+        setPassword("");
+        setErrors({});
       } else {
         // Handle error response
         console.error("Registration failed:", response.statusText);

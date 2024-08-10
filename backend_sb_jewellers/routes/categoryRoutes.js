@@ -6,7 +6,7 @@ const { auth, admin } = require("../middleware/regLog_middleware");
 //Creating Category API
 
 // Implementating post method to the categories
-cRouter.post("/category", auth, admin, async (req, res) => {
+cRouter.post("/category/create", auth, admin, async (req, res) => {
   const newCategory = new Category(req.body);
   try {
     const CategorySaved = await newCategory.save();
@@ -40,7 +40,7 @@ cRouter.get("/category/:id", async (req, res) => {
 });
 
 //Implementing update by it's ID to update a single Category
-cRouter.put("/category/:id", auth, admin, async (req, res) => {
+cRouter.put("/category/update/:id", auth, admin, async (req, res) => {
   try {
     const updatedCategory = await Category.findByIdAndUpdate(
       req.params.id,

@@ -34,14 +34,13 @@ function AdminProduct() {
 
   // Add Function
   const handleAddProduct = () => {
-    // Redirect to the home page
+    // Redirect to the Add Product page
     navigate("/addProducts");
   };
 
   // Update Function
   const handleUpdateProduct = (id) => {
-    alert(`Update button clicked for product with id ${id}`);
-    // Logic for updating a product goes here
+    navigate(`/updateProducts/${id}`);
   };
 
   // Delete Function

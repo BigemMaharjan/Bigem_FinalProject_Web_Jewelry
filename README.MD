@@ -2,7 +2,7 @@ E-Commerce Project (SB Jewelry)
 
 Student Name: Bigem Maharjan
 Student Number: 8952906
-Date: 2024/07/20
+Date: 2024/08/09
 
 Technology Stack
 
@@ -72,10 +72,8 @@ Notes
 6. You can Run `npm start` to start the frontend server named "frontend_sb_jewellers".
 -->
 
-<!-- Testing the backend for now -->
-<!--
-1. Open Postman and paste the collection that I have attached with the submission file
-2. All the api end-points are created. You can first configure the MonogDb Atlas and then try testing those api made for adding, retreiving, updating and deleting products.
-3. The changes can be seen in the frontend part as well.
+<!-- The admin can only register the other admin once he/she is logged in. Admin can perform CRUD operation in product and category after login -->
 
- -->
+<!-- Login Credentials -->
+<!-- Email: bigem@gmail.com -->
+<!-- Password: bigem123 -->

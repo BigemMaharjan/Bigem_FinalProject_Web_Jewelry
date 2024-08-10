@@ -14,7 +14,9 @@ import OrderSummary from "./pages/OrderSummary";
 import AdminProduct from "./pages/admin/AdminProduct";
 import AdminCategory from "./pages/admin/AdminCategory";
 import AddCategory from "./pages/admin/AddCategory";
+import UpdateCategory from "./pages/admin/UpdateCategory";
 import AddProducts from "./pages/admin/AddProducts";
+import UpdateProducts from "./pages/admin/UpdateProducts";
 import { CartProvider } from "../src/pages/CartContext"; // Import CartProvider
 
 const App = () => {
@@ -36,9 +38,9 @@ const App = () => {
           <Route path="/adminProduct" element={<AdminProduct />} />
           <Route path="/adminCategory" element={<AdminCategory />} />
           <Route path="/addCategory" element={<AddCategory />} />
-          {/* <Route path="/updateCategory" element={<UpdateCategory />} /> */}
-          {/* <Route path="/updateProducts" element={<UpdateProducts />} /> */}
+          <Route path="/updateCategory/:id" element={<UpdateCategory />} />
           <Route path="/addProducts" element={<AddProducts />} />
+          <Route path="/updateProducts/:id" element={<UpdateProducts />} />
         </Routes>
       </Router>
     </CartProvider>

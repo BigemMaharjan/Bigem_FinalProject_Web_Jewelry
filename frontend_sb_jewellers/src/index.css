@@ -560,6 +560,46 @@ form .btn:hover {
 }
 
 /* Checkout and Order Summary */
+.checkoutForm {
+  padding-top: 10px;
+}
+
+.roww {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.input-controll {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.input-controll label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-controll input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
 
 .order-summary-container {
   max-width: 600px;
@@ -648,6 +688,7 @@ form .btn:hover {
 /* Admin Product */
 .product-table-container {
   margin: 20px;
+  padding-bottom: 20px;
 }
 
 .top-bar {

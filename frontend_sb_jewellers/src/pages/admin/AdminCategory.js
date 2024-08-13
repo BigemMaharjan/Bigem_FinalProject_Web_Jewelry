@@ -85,6 +85,7 @@ function AdminCategory() {
           </tr>
         </thead>
         <tbody>
+          {/* mapping the category to get the data easily */}
           {category.map((category) => (
             <tr key={category._id}>
               <td>{category.categoryName}</td>
